@@ -3,6 +3,6 @@ version: "3"
 services:
   java-rest-demo:
     container_name: rest-demo-java-service
-    build: ./java
+    build: .
     ports:
       - 8080:8080
