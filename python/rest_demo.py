@@ -10,8 +10,9 @@ class HelloResponse(object):
 class HelloWorld(object):
     
     @cherrypy.expose
+    @cherrypy.tools.json_out()
     def hello(self):
         response = HelloResponse()
-        return json.dumps(response.__dict__)
+        return response.__dict__
 
 cherrypy.quickstart(HelloWorld(), '/', {'global': {'server.socket_host':'0.0.0.0','server.socket_port': 8080}})
