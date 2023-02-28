@@ -15,7 +15,7 @@ func main() {
     router := gin.Default()
     router.GET("/hello", getGreeting)
 
-    router.Run()
+    router.Run("0.0.0.0:8080")
 }
 
 func getGreeting(c *gin.Context) {
