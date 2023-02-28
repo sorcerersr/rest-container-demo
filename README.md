@@ -19,4 +19,6 @@ This JSON is deserialized from a simple objekt to have the mechanism of serializ
 
 * Java with Spring Boot
 * Python with CherryPy
+* Go with Gin
+* Rust with actix-web
 
