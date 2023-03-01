@@ -36,7 +36,6 @@ RUN apk add --no-cache dumb-init && \
     mkdir /opt/app
 COPY --from=app-build /build/target/java-rest-demo.jar /opt/app/java-rest-demo.jar
 WORKDIR /opt/app
-RUN chown -R javauser:javauser /opt/app
 USER javauser
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 CMD ["java", "-jar", "/opt/app/java-rest-demo.jar"]
