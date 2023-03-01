@@ -21,4 +21,5 @@ This JSON is deserialized from a simple objekt to have the mechanism of serializ
 * Python with CherryPy
 * Go with Gin
 * Rust with actix-web
+* V with builtin vweb module
 
