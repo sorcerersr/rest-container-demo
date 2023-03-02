@@ -59,4 +59,29 @@ After some minutes and a few requests:
 
 ![podman_stats_2](podman_stats2.png)
 
+Sample size is a bit small but here some rankings:
+
+By CPU usage (low to high):
+
+| # | Service                       | CPU usage          |
+|---| ----------------------------- | ------------------ |
+| 1 | V with builtin vweb module    | 0.01 % and 0.02 %  |
+| 2 | Go with Gin                   | 0.03 % and 0.01 %  |
+| 3 | Rust with actix-web           | 0.12 % and 0.13 %  |
+| 4 | Node.js with express.js       | 0.69 % and 0.23 %  |
+| 5 | Python with CherryPy          | 3.43 % and 1.54 %  |
+| 6 | Java with Spring Boot         | 34.86 % and 11.46 %  |
+
+
+By MEM usage (low to high):
+
+| # | Service                       | MEM 1     | MEM 2    |
+|---| ----------------------------- | --------- | -------- |
+| 1 | Rust with actix-web           | 0.50 MB   | 0.72 MB  |
+| 2 | V with builtin vweb module    | 0.52 MB   | 0.95 MB  |
+| 3 | Go with Gin                   | 6.39 MB   | 6.94 MB  |
+| 4 | Node.js with express.js       | 14.9 MB   | 15.6 MB  |
+| 5 | Python with CherryPy          | 28.2 MB   | 28,3 MB  |
+| 6 | Java with Spring Boot         | 187 MB   | 192 MB  |
+
 
