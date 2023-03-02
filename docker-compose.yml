@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  java-demo:
+    container_name: rest-demo-java-service
+    build: ./java
+    ports:
+      - 8080:8080
+  python-demo:
+    container_name: rest-demo-python-service
+    build: ./python
+    ports:
+      - 8081:8080
+  go-demo:
+    container_name: rest-demo-go-service
+    build: ./go
+    ports:
+      - 8082:8080
+  rust-demo:
+    container_name: rest-demo-rust-service
+    build: ./rust
+    ports:
+      - 8083:8080
+  v-demo:
+    container_name: rest-demo-v-service
+    build: ./v
+    ports:
+      - 8084:8082
+  node-rest-demo:
+    container_name: rest-node-service
+    build: ./node
+    ports:
+      - 8085:8080
+

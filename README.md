@@ -39,3 +39,24 @@ Image size from small to large
 | 2 | Java with Spring Boot         | 78,2 MB       |
 | 2 | Python with CherryPy          | 87,2 MB       |
 | 2 | Node.js with express.js       | 185  MB       |
+
+
+### podman stats
+
+
+Some stats using
+```
+podman stats --no-stream
+```
+
+Directly after startup before making any requests:
+
+![podman_stats_1](podman_stats.png)
+
+Most notable here is the Java based service using more than three times more memory than all other services together! About 51 MB (Python + Go + Rust + V + Node) vs 187 MB (Java). CPU utilization is also high for the Java-service.
+
+After some minutes and a few requests:
+
+![podman_stats_2](podman_stats2.png)
+
+
