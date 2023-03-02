@@ -22,4 +22,20 @@ This JSON is deserialized from a simple objekt to have the mechanism of serializ
 * Go with Gin
 * Rust with actix-web
 * V with builtin vweb module
+* Node.js with express.js
 
+
+## Comparison
+
+### Image size
+
+Image size from small to large
+
+| # | Service                       | Size          |
+|---| ----------------------------- | ------------- |
+| 1 | V with builtin vweb module    | 11,2 MB       |
+| 2 | Go with Gin                   | 14,6 MB       |
+| 2 | Rust with actix-web           | 17,4 MB       |
+| 2 | Java with Spring Boot         | 78,2 MB       |
+| 2 | Python with CherryPy          | 87,2 MB       |
+| 2 | Node.js with express.js       | 185  MB       |
