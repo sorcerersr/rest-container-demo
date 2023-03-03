@@ -23,6 +23,7 @@ This JSON is deserialized from a simple objekt to have the mechanism of serializ
 * Rust with actix-web
 * V with builtin vweb module
 * Node.js with express.js
+* Java with quarkus and GraalVM
 
 
 ## Comparison
@@ -92,3 +93,69 @@ By MEM usage (low to high):
 
 Much more comparable than the CPU usage as the variation is higher.
 
+### Load-testing
+
+Using [wrk](https://github.com/wg/wrk) to benchmark the services with following command line:
+
+```
+ wrk -t8 -c400 -d30s http://localhost:<Port>/hello
+```
+
+* -t8 to use 8 threads
+* -c400 use 400 connections
+* -d30s run test for 30 seconds
+
+Results:
+
+#### Java with Spring Boot
+
+![java_spring](wrk/java_spring.png)
+
+### Python with CherryPy
+
+![python](wrk/python.png)
+
+### Go with Gin
+
+![go](wrk/go.png)
+
+### Rust with actix-web
+
+![rust](wrk/rust.png)
+
+### V with builtin vweb module
+
+Unfortunately crashed during test.
+
+### Node.js with express.js
+
+![node](wrk/node.png)
+
+
+### Java with quarkus and GraalVM
+
+![java_quarkus](wrk/java_quarkus.png)
+
+### Summary of load test
+
+Ordered by request per seconds from highest to lowest
+
+| # | Service                       | Requests/sec  | Transfer/sec  |
+|---| ----------------------------- | --------- | -------- |
+| 1 | Rust with actix-web           | 87723.85  | 11.96 MB |
+| 2 | Java with quarkus/GraalVM     | 39085.70  | 4.47 MB  |
+| 3 | Java with Spring Boot         | 28945.57  | 4.42 MB  |
+| 4 | Go with Gin                   | 26254.54  | 4.28 MB  |
+| 5 | Node.js with express.js       | 5189.59   | 1.34 MB  |
+| 6 | Python with CherryPy          | 802.08    | 0.14 MB  |
+| - | V with builtin vweb module    | crashed   | crashed  |
+
+* The result of the Rust demo service is outstanding with more than twice the requests per seconds than the second ranked service.
+* Unfortunately it was not possible to get a result for the V service as it crashes during the test. 
+* Suprising result by Java with spring boot that is on the same level with Go.
+
+Podman stats after the tests:
+
+![podman_stats_after_wrk](wrk/podmanstats.png)
+
+* Again the most notable result by Rust with the lowest memory usage.
