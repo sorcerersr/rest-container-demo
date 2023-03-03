@@ -27,17 +27,17 @@ RUN $JAVA_HOME/bin/jlink \
 
 # Stage 3: Finally build the image to run the jar
 # uses the jar from stage 1 and the JRE from stage 2 
-FROM alpine:3.17
-ENV JAVA_HOME=/opt/java/openjdk
-ENV PATH "${JAVA_HOME}/bin:${PATH}"
-COPY --from=jre-build /javaruntime $JAVA_HOME
-RUN apk add --no-cache dumb-init && \
-    addgroup --system javauser && adduser -S -s /bin/false -G javauser javauser && \
-    mkdir /opt/app
+FROM eclipse-temurin:11
+# ENV JAVA_HOME=/opt/java/openjdk
+# ENV PATH "${JAVA_HOME}/bin:${PATH}"
+# COPY --from=jre-build /javaruntime $JAVA_HOME
+# RUN apk add --no-cache dumb-init && \
+#     addgroup --system javauser && adduser -S -s /bin/false -G javauser javauser && \
+#     mkdir /opt/app
 COPY --from=app-build /build/target/java-rest-demo.jar /opt/app/java-rest-demo.jar
 WORKDIR /opt/app
-USER javauser
-ENTRYPOINT ["/usr/bin/dumb-init", "--"]
+# USER javauser
+# ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 CMD ["java", "-jar", "/opt/app/java-rest-demo.jar"]
 
 

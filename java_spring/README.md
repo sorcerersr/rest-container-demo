@@ -1,5 +1,10 @@
 # Java starter/demo using spring-boot
 
+## Introduction
+
+A conservative approach for a service using Java.
+
+
 ## A note on image size
 
 The current image size is around 78.2 MB.

@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  quarkus-rest-demo:
+    container_name: rest-demo-quarkus-service
+    build: .
+    ports:
+      - 8086:8080

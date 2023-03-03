@@ -3,7 +3,7 @@ version: "3"
 services:
   java-demo:
     container_name: rest-demo-java-service
-    build: ./java
+    build: ./java_spring
     ports:
       - 8080:8080
   python-demo:
@@ -31,4 +31,9 @@ services:
     build: ./node
     ports:
       - 8085:8080
+  quarkus-rest-demo:
+    container_name: rest-demo-java-quarkus-service
+    build: ./java_quarkus
+    ports:
+      - 8086:8080
 
