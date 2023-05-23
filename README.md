@@ -159,3 +159,8 @@ Podman stats after the tests:
 ![podman_stats_after_wrk](wrk/podmanstats.png)
 
 * Again the most notable result by Rust with the lowest memory usage.
+
+## Some other interesting articles or benchmarks 
+
+* https://maxday.github.io/lambda-perf/
+* https://pkolaczk.github.io/memory-consumption-of-async/
